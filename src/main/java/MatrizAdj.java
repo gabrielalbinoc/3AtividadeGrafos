@@ -9,6 +9,7 @@ public class MatrizAdj {
     String [] ante = new String[Integer.parseInt(linhas.get(0))];
     int s = 0;
     int[][] matAdj = new int[Integer.parseInt(linhas.get(0))][Integer.parseInt(linhas.get(1))];
+
     public static void main(String[] args) {
         MatrizAdj run = new MatrizAdj();
         LeitorTXT lerTXT = new LeitorTXT("src/main/java/pequenoG.txt");
@@ -63,5 +64,16 @@ public class MatrizAdj {
             cor[u] = "PRETO";
         }
          printCaminho(6);
+    }
+
+    void printCaminho(int vertice) {
+        if (vertice == s) {
+            System.out.println(s);
+        } else if (ante[vertice] == null) {
+            System.out.println("Não há caminho");
+        } else {
+            printCaminho(Integer.parseInt(ante[vertice]));
+            System.out.println(vertice);
+        }
     }
 }
